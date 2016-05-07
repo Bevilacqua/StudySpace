@@ -17,7 +17,7 @@
 
 <p>
   <strong>Type:</strong>
-  <%= @spot.type %>
+  <%= @spot.stype %>
 </p>
 
 <p>
@@ -39,6 +39,17 @@
   <strong>Checkin count:</strong>
   <%= @spot.checkin_count %>
 </p>
+
+<hr/>
+<h3>Recent Statuses:</h3>
+<h3><%= @spot.statuses.count %> statuses!</h3>
+<% @spot.statuses.each do |stat| %>
+  <h4>Status by: Anonymous dick</h4>
+  <p><%= stat.description %></p>
+<% end %>
+
+<h3> Add a Status! </h3>
+<%= link_to 'Update Status', new_status_path(user_id: session[:user_id], spot_id: @spot.id) %>
 
 <%= link_to 'Edit', edit_spot_path(@spot) %> |
 <%= link_to 'Back', spots_path %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507195905) do
+ActiveRecord::Schema.define(version: 20160507220240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160507195905) do
     t.text     "name"
     t.text     "location"
     t.text     "description"
-    t.integer  "type"
+    t.integer  "stype"
     t.float    "sound_level"
     t.float    "rating"
     t.integer  "rating_count"
@@ -28,6 +28,17 @@ ActiveRecord::Schema.define(version: 20160507195905) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "statuses", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "spot_id"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "statuses", ["spot_id"], name: "index_statuses_on_spot_id", using: :btree
+  add_index "statuses", ["user_id"], name: "index_statuses_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.text     "name"
