@@ -1,6 +1,22 @@
 # Study Space
 like spots and like you like uh study fam but like yeah
 
+Checklist
+----------
+- [ ] Home page (DOPE)
+- [ ] Adding a spot
+- [ ] Rating spots
+- [ ] Checkins
+- [ ] Warnings
+- [ ] Featured feed on homepage
+- [ ] Users
+- [ ] Anonymous
+
+If we get to it
+--------------
+- [ ] Weather integration
+- [ ] 
+
 Data 
 ------
 
