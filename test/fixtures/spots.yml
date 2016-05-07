@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyText
+  location: MyText
+  description: MyText
+  type: 1
+  sound_level: 1.5
+  rating: 1.5
+  rating_count: 1
+  checkin_count: 1
+
+two:
+  name: MyText
+  location: MyText
+  description: MyText
+  type: 1
+  sound_level: 1.5
+  rating: 1.5
+  rating_count: 1
+  checkin_count: 1
