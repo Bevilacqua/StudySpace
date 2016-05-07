@@ -1,4 +1,6 @@
 StudySpace::Application.routes.draw do
+  resources :statuses
+
   get "users/view"
   resources :spots
 
