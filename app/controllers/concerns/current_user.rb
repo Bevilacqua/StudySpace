@@ -3,9 +3,11 @@ module CurrentUser extend ActiveSupport::Concern
 	private
 
 	def set_user
-		@user = User.find(request.remote_ip)
+		@current_user = User.find(request.remote_ip)
+		session[:user_id] = @current_user.id
 	rescue ActiveRecord::RecordNotFound
-		@user = User.create
+		@current_user = User.create
+		session[:user_id] = @current_user.id
 	end
 
 end

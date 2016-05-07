@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:view]
 
   def view
+  	@user = User.find(session[:user_id])
   end
 
   # POST /user
@@ -14,8 +15,8 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @user }
+#        format.html { redirect_to @user, notice: 'User was successfully created.' }
+#        format.json { render action: 'show', status: :created, location: @user }
       end
     end
   end
