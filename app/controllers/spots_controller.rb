@@ -12,7 +12,7 @@ class SpotsController < ApplicationController
   # GET /spots/1.json
   def show
     @status = Status.new
-    @top_statuses = Status.getTopStatuses(@status.id.to_i)
+    @top_statuses = @spot.statuses.last(3)
     @missing_count = 3 - @top_statuses.count
     @w_type = resolve_type @spot.stype
   end

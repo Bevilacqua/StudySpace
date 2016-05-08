@@ -17,7 +17,7 @@
    <div class="custom_center">
       <span>
       <%= link_to '<i class="glyphicon glyphicon-map-marker map-marker" aria-hidden="true"></i>'.html_safe, new_checkin_path(spot_id: @spot.id.to_i)%>                
-      </span><%= @spot.location %>
+      </span><%= @spot.location %>Click the icon to check in!
    </div>
    <div class="text-center special-font">
       <div class="row row-padding">
@@ -53,7 +53,6 @@
       <% @top_statuses.each do |stat| %>
         <div class="col-sm-4">
            <p class="text-box2"><%= stat.description %></p>
-           <small></small>
         </div>
       <% end %>
 
@@ -61,7 +60,6 @@
         <% @missing_count.to_i.times do %>
           <div class="col-sm-3">
            <p class="text-box2">Holy cow! No Status???? </p>
-           <small>Well it could be you...</small>
         </div>
         <% end %>
       <% end %>
