@@ -22,7 +22,7 @@
 
 <p>
   <strong>Sound level:</strong>
-  <%= @spot.sound_level %>
+  <%= @spot.current_sound_level %>
 </p>
 
 <p>
@@ -50,6 +50,21 @@
 
 <h3> Join <%= @spot.checkins.count %> spotters and <strong>Checkin at this Spot!</strong> </h3>
 <%= link_to 'Checkin!', new_checkin_path(spot_id: @spot.id.to_i) %>
+<br />
+<h3>Down to rate yo? Currently: <%= @spot.rating %> with <%= @spot.rating_count %> ratings. </h3>
+<ul>
+<% 5.times do |z| %>
+  <li><%= link_to "Rate #{z + 1} stars!", new_rating_path(spot_id: @spot.id.to_i, value: (z + 1))%></li>
+<% end %>
+</ul>
+<br />
+<ul>
+<h3>Rate the sound you bitch! Currently: <%= @spot.current_sound_level %></h3>
+<% 3.times do |z| %>
+  <li><%= link_to "Rate #{z + 1} sound!", new_sound_level_path(spot_id: @spot.id.to_i, value: (z + 1))%></li>
+<% end %>
+</ul>
+<br />
 <h3> Add a Status! </h3>
 <%= render 'shared/status_update' %>
 <%= link_to 'Update Status', new_status_path(user_id: cookies[:u_id], spot_id: @spot.id.to_i) %>

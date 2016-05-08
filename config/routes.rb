@@ -1,4 +1,6 @@
 StudySpace::Application.routes.draw do
+  resources :sound_levels
+  resources :ratings
   resources :checkins
   resources :statuses
   resources :users
