@@ -14,6 +14,7 @@ class SpotsController < ApplicationController
     @status = Status.new
     @top_statuses = Status.getTopStatuses(@status.id.to_i)
     @missing_count = 3 - @top_statuses.count
+    @w_type = resolve_type @spot.stype
   end
 
   # GET /spots/new
@@ -78,5 +79,17 @@ class SpotsController < ApplicationController
 
     def restrict
       http_basic_authenticate_with :password => ENV['ADMIN_PASS']
+    end
+
+    def resolve_type id
+      if id == 0
+        return "Inside"
+      elsif id == 1
+        return "Outside"
+      elsif id == 2
+        return "Hybrid"
+      else
+        return "Special"
+      end 
     end
 end
