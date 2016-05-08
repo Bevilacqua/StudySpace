@@ -1,9 +1,9 @@
 StudySpace::Application.routes.draw do
-  resources :sound_levels
-  resources :ratings
-  resources :checkins
-  resources :statuses
-  resources :users
+  resources :sound_levels, :only => [:new]
+  resources :ratings, :only => [:new]
+  resources :checkins, :only => [:new]
+  resources :statuses, :only => [:new, :create, :update, :destroy]
+  resources :users, :only => [:show, :create, :update, :destroy]
   resources :spots
 
   # The priority is based upon order of creation: first created -> highest priority.

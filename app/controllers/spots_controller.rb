@@ -1,5 +1,6 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
+  before_action :restrict, only: [:edit, :update, :create, :destroy]
 
   # GET /spots
   # GET /spots.json
@@ -71,5 +72,9 @@ class SpotsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def spot_params
       params.require(:spot).permit(:name, :location, :description, :type, :current_sound_level, :rating, :rating_count, :checkin_count)
+    end
+
+    def restrict
+      http_basic_authenticate_with :password => ENV['ADMIN_PASS']
     end
 end
