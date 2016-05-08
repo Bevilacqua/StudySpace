@@ -1,7 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyText
+  uname: MyText
+  ip_adr: MyText
 
 two:
-  name: MyText
+  uname: MyText
+  ip_adr: MyText
