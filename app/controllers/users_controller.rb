@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :restrict, only: [:destroy, :update, :edit]
+  http_basic_authenticate_with name: "Admin", password: ENV["ADMIN_PASS"], only: [:destroy, :update, :edit]
   # GET /users
   # GET /users.json
   def index
