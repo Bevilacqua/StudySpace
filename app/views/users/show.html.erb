@@ -3,9 +3,10 @@
 		<div class="text-center logo"><a href="study-space.herokuapp.com"><img style="width: 342px; height: 94px;" src="/assets/study_space_title_logo.png" alt="" /></a></div>
 		<br/><br/>
 		<div class="text-center welcome">
-			<p class="welcome">Hello, <%= User.find(cookies[:u_id]).uname%>!</p>
+			<p id="welcome">Hello, <%= User.find(cookies[:u_id]).uname%>!</p>
 		</div>
 	</div>
+	<div class="text-center into btn-group"><%= link_to "See all study spots near you!", spots_path(), class: "btn btn-default"%></div>
 </div>
 <p>&nbsp;</p>
 <div class="well well-sm">
@@ -32,7 +33,7 @@
 				<div class="panel-heading panel1">
 					<h3 class="panel-title"><%= Spot.find(check.spot_id.to_i).name %></h3>
 				</div>
-				<div class="panel-body body1"><%= Spot.find(check.spot_id.to_i).name %></div>
+				<div class="panel-body body1"><%= Spot.find(check.spot_id.to_i).description %></div>
 				<div class="btn-group learn_more"><%= link_to "Learn more", spot_path(:id => check.spot_id), class: "btn btn-default" %></div>
 			</div>
 			<% end %>
@@ -48,7 +49,7 @@
 				<div class="panel-heading panel1">
 					<h3 class="panel-title"><%= Spot.find(check.spot_id.to_i).name %></h3>
 				</div>
-				<div class="panel-body body1"><%= Spot.find(check.spot_id.to_i).name %></div>
+				<div class="panel-body body1"><%= Spot.find(check.spot_id.to_i).description %></div>
 				<div class="btn-group learn_more"><%= link_to "Learn more", spot_path(:id => check.spot_id), class: "btn btn-default" %></div>
 			</div>
 			<% end %>
