@@ -48,6 +48,8 @@
   <p><%= stat.description %></p>
 <% end %>
 
+<h3> Join <%= @spot.checkins.count %> spotters and <strong>Checkin at this Spot!</strong> </h3>
+<%= link_to 'Checkin!', new_checkin_path(spot_id: @spot.id.to_i) %>
 <h3> Add a Status! </h3>
 <%= render 'shared/status_update' %>
 <%= link_to 'Update Status', new_status_path(user_id: cookies[:u_id], spot_id: @spot.id.to_i) %>

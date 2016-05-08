@@ -5,6 +5,12 @@
 <p>This will look better i promise</p>
 
 <h4>Your contributions:</h4>
-
+<h5>Checkin Count: <%= @user.checkins.count %></h5>
+<h5>Status Updates: <%= @user.statuses.count %></h5>
+<ul>
+<% @user.statuses.reverse_each do |stat| %>
+	<li><p><%= stat.description %></p><small><%= stat.created_at.to_date %></small></li>	
+<% end %>
+</ul>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
