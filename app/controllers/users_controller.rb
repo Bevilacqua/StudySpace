@@ -10,6 +10,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @local = @user.checkins.last(3)
+    @global = Checkin.all.last(3)
   end
 
   # GET /users/new
