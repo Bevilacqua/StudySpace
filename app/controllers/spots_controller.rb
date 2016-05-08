@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
-  http_basic_authenticate_with name: "Admin", password: "suck", only: [:edit, :update, :create, :destroy]
+  http_basic_authenticate_with name: "Admin", password: ENV["ADMIN_PASS"], only: [:edit, :update, :create, :destroy]
 
   # GET /spots
   # GET /spots.json
@@ -14,9 +14,6 @@ class SpotsController < ApplicationController
     @status = Status.new
     @top_statuses = Status.getTopStatuses(@status.id.to_i)
     @missing_count = 3 - @top_statuses.count
-    if @missing_count.to_i > 0
-      @missing_count += 1
-    end
   end
 
   # GET /spots/new

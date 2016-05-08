@@ -1,3 +1,33 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.welcome {
+  font-size: 26px;
+}
+
+.search_row {
+  float: right !important;
+  position: relative;
+  margin: 0 50%;
+  margin-right: auto;
+  padding-bottom: 15px;
+}
+
+.visited {
+  margin: 0 0 0 0;
+  position: relative;
+}
+
+.body1 {
+  min-height: 220px;
+  max-height: 220px;
+}
+
+.body2 {
+  min-height: 220px;
+  max-height: 220px;
+}
+
+.learn_more {
+  padding-bottom: 30px;
+}
