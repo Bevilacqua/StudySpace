@@ -10,6 +10,7 @@ class SpotsController < ApplicationController
   # GET /spots/1
   # GET /spots/1.json
   def show
+    @status = Status.new
   end
 
   # GET /spots/new

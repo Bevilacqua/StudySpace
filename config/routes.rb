@@ -1,4 +1,5 @@
 StudySpace::Application.routes.draw do
+  resources :checkins
   resources :statuses
   resources :users
   resources :spots
