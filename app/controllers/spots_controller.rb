@@ -82,11 +82,11 @@ class SpotsController < ApplicationController
     end
 
     def resolve_type id
-      if id == 0
+      if id.to_i == 0
         return "Inside"
-      elsif id == 1
+      elsif id.to_i == 1
         return "Outside"
-      elsif id == 2
+      elsif id.to_i == 2
         return "Hybrid"
       else
         return "Special"
