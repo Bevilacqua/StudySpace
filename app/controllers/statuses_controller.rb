@@ -1,5 +1,6 @@
 class StatusesController < ApplicationController
   before_action :set_status, only: [:show, :edit, :update, :destroy]
+  before_action :restrict, only: [:edit, :destroy, :update]
 
   # GET /statuses
   # GET /statuses.json
@@ -71,5 +72,9 @@ class StatusesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_params
       params.require(:status).permit(:user_id, :spot_id, :description)
+    end
+
+    def restrict
+      http_basic_authenticate_with :password => ENV['ADMIN_PASS']
     end
 end
