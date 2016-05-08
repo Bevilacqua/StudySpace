@@ -52,7 +52,7 @@
    <div class="row">
       <% @top_statuses.each do |stat| %>
         <div class="col-sm-4">
-           <p class="text-box2"><%= stat.description %></p>
+           <p class="text-box2"><%= stat.description %><br/><small><%= User.find(stat.user_id).uname %></small></p>
         </div>
       <% end %>
 
