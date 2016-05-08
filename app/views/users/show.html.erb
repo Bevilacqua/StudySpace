@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="page-header">
-		<div class="text-center logo"><img style="width: 342px; height: 94px;" src="/assets/study_space_title_logo.png" alt="" /></div>
+		<div class="text-center logo"><a href="study-space.herokuapp.com"><img style="width: 342px; height: 94px;" src="/assets/study_space_title_logo.png" alt="" /></a></div>
 		<br/><br/>
 		<div class="text-center welcome">
 			<p class="welcome">Hello, <%= User.find(cookies[:u_id]).uname%>!</p>
@@ -25,7 +25,7 @@
 </div>
 
 <div class="row spaces_panel">
-	<div class="col-md-3">
+	<div class="col-md-3", id="left-col">
 		<div class="text-center">
 			<% @local.each do |check| %>
 			<div class="panel panel-default">
@@ -41,7 +41,7 @@
 		</div>
 	</div>
 
-	<div class="col-md-3">
+	<div class="col-md-3", id="right-col">
 		<div class="text-center">
 			<% @global.each do |check| %>
 			<div class="panel panel-default">
