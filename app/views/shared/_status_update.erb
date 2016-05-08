@@ -14,11 +14,13 @@
   <%= hidden_field(:status, :user_id, :value => User.find(cookies[:u_id]).id.to_i) %>
   <%= hidden_field(:status, :spot_id, :value => @spot.id.to_i) %>
 
-  <div class="field">
-    <%= f.label "Describe the current situation at this spot!" %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group comment">
+    <div>
+      <%= f.label "Update this space's status!" %><br>
+      <%= f.text_area :description, class: "form-control", rows: "5", id: "comment" %>
+    </div>
+    <div>
+      <%= f.submit "Update Status", class: "btn btn-default" %>
+    </div>
   </div>
 <% end %>

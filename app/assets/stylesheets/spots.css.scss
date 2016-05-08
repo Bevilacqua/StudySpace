@@ -1,3 +1,108 @@
 // Place all the styles related to the Spots controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/* Notes:
+ * logo and Name of Location are not aligned
+ * Rating/stars and SoundLevel/volume aren't aligned
+*/
+
+* {
+  font-family: Helvetica;
+}
+
+body {
+}
+
+.map-marker {
+  font-size: 1.25em;
+  padding-right: .25em;
+  text-decoration: none;
+}
+
+.special-font {
+  font-size: 20px;
+}
+
+.star{
+  font-size:1.25em;
+}
+
+.row-padding {
+  padding: 1em;
+}
+
+.vol-down {
+  font-size:1.25em;
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1em;
+}
+
+.description {
+  font-size: 16px;
+  padding-bottom: 50px;
+}
+
+.text-box {
+  position: relative;
+  text-align: right;
+  line-height: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 100px;
+  border-right: 1px solid black;
+}
+
+.text-box2 {
+  position: relative;
+  text-align: center;
+  line-height: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-box3 {
+  position: relative;
+  text-align: left;
+  line-height: 80px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 100px;
+  border-left: 1px solid black;
+}
+
+.star2 {
+  font-size:1.25em;
+  color: gray;
+  padding-top: 50px;
+  padding-bottom: 25px;
+}
+
+.vol {
+  padding-top: 50px;
+  padding-bottom: 25px;
+  font-size:1.25em;
+  color: gray;
+}
+
+a:hover {
+  text-decoration: none;
+  background-color: transparent;
+}
+.star2:hover {
+  font-size: 1.5em;
+}
+
+.vol:hover {
+  font-size: 1.5em;
+}
+.comment {
+  padding-bottom: 150px;
+}
