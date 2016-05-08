@@ -27,13 +27,13 @@
 <div class="row spaces_panel">
 	<div class="col-md-3">
 		<div class="text-center">
-			<%= @local.each do |check| %>
+			<% @local.each do |check| %>
 			<div class="panel panel-default">
 				<div class="panel-heading panel1">
-					<h3 class="panel-title"><%= check.spot.name %></h3>
+					<h3 class="panel-title"><%= Spot.find(check.spot_id.to_i).name %></h3>
 				</div>
-				<div class="panel-body body1"><%= check.spot.description %></div>
-				<div class="btn-group learn_more"><button class="btn btn-default" type="button">Learn more</button></div>
+				<div class="panel-body body1"><%= Spot.find(check.spot_id.to_i).name %></div>
+				<div class="btn-group learn_more"><%= link_to "Learn more", spot_path(:id => check.spot_id), class: "btn btn-default" %></div>
 			</div>
 			<% end %>
 
@@ -43,13 +43,13 @@
 
 	<div class="col-md-3">
 		<div class="text-center">
-			<%= @global.each do |check| %>
+			<% @global.each do |check| %>
 			<div class="panel panel-default">
 				<div class="panel-heading panel1">
-					<h3 class="panel-title"><%= check.spot.name %></h3>
+					<h3 class="panel-title"><%= Spot.find(check.spot_id.to_i).name %></h3>
 				</div>
-				<div class="panel-body body1"><%= check.spot.description %></div>
-				<div class="btn-group learn_more"><button class="btn btn-default" type="button">Learn more</button></div>
+				<div class="panel-body body1"><%= Spot.find(check.spot_id.to_i).name %></div>
+				<div class="btn-group learn_more"><%= link_to "Learn more", spot_path(:id => check.spot_id), class: "btn btn-default" %></div>
 			</div>
 			<% end %>
 

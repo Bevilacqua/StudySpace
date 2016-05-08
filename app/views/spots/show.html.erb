@@ -16,7 +16,7 @@
    </div>
    <div class="text-center special-font">
       <span>
-      <a href="https://www.google.com/"><i class="glyphicon glyphicon-map-marker map-marker" aria-hidden="true"></i></a>
+      <%= link_to '<i class="glyphicon glyphicon-map-marker map-marker" aria-hidden="true"></i>'.html_safe, new_checkin_path(spot_id: @spot.id.to_i)%>                
       </span><%= @spot.location %>
    </div>
    <div class="text-center special-font">
@@ -40,7 +40,7 @@
             </div>
          </div>
          <div class="col-sm-4">
-            <div class="text-left"><%= @spot.stype %></div>
+            <div class="text-left"><%= @spot.w_type %></div>
          </div>
       </div>
    </div>
@@ -48,6 +48,7 @@
    <div class="description">
       <p><%= @spot.description %></p>
    </div>
+   <hr />
    <div class="row">
       <% @top_statuses.each do |stat| %>
         <div class="col-sm-4">
