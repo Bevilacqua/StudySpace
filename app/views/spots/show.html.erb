@@ -1,73 +1,91 @@
-<p id="notice"><%= notice %></p>
+<% @spot.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+<div class="container">
+   <div class="page-header">
+      <div class="row header_row">
+         <div class="col-sm-4">
+            <div class="text-left head-left"><img src="/assets/study_space_logo.png" style="width:102px; height:82px;"></div>
+         </div>
+         <div class="col-sm-4">
+            <div class="text-center head-center">
+               <h1 class="text-center"><%= @spot.name %></h1>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="text-center special-font">
+      <span>
+      <a href="https://www.google.com/"><i class="glyphicon glyphicon-map-marker map-marker" aria-hidden="true"></i></a>
+      </span><%= @spot.location %>
+   </div>
+   <div class="text-center special-font">
+      <div class="row row-padding">
+         <div class="col-sm-4">
+            <div class="text-right">
+            <% @spot.rating.ceil.to_i.times do %>
+               <span class="glyphicon glyphicon-star star" aria-hidden="true"></span>
+            <% end %>
+            </div>
+         </div>
+         <div class="col-sm-4">
+            <div class="text-center">
+              <% if @spot.current_sound_level.ceil.to_i == 1 %>
+               <span class="glyphicon glyphicon-volume-off vol-off" aria-hidden="true"></span>
+              <% elsif @spot.current_sound_level.ceil.to_i == 2 %>
+               <span class="glyphicon glyphicon-volume-down vol-down" aria-hidden="true"></span>
+              <% else %>
+                <span class="glyphicon glyphicon-volume-up vol-up" aria-hidden="true"></span>                 
+               <% end %>
+            </div>
+         </div>
+         <div class="col-sm-4">
+            <div class="text-left"><%= @spot.stype %></div>
+         </div>
+      </div>
+   </div>
+   <img class="center-block" src="http://universityofcalifornia.edu/sites/default/files/mrak-hall-uc-davis.jpeg">
+   <div class="description">
+      <p><%= @spot.description %></p>
+   </div>
+   <div class="row">
+      <% @top_statuses.each do |stat| %>
+        <div class="col-sm-4">
+           <p class="text-box2"><%= stat.description %></p>
+           <small></small>
+        </div>
+      <% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @spot.name %>
-</p>
+      <% if @missing_count > 0 %>
+        <% @missing_count.to_i.times do %>
+          <div class="col-sm-3">
+           <p class="text-box2">Holy cow! No Status???? </p>
+           <small>Well it could be you...</small>
+        </div>
+        <% end %>
+      <% end %>
+      
+   </div>
+   <div class="row row2-padding">
+      <div class="col-sm-4">
+         <div class="text-right">
+            <label for="rating">Rating:</label>
+            <% 5.times do |z| %>
+              <%= link_to '<i class="glyphicon glyphicon-star-empty star2"></i>'.html_safe, new_rating_path(spot_id: @spot.id.to_i, value: (5 - z)) %>                
+            <% end %>
+         </div>
+      </div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+         <div class="text-left">
+            <label for="sound_level">Sound Level:</label>
+            <%= link_to '<i class="glyphicon glyphicon-volume-off vol"></i>'.html_safe, new_sound_level_path(spot_id: @spot.id.to_i, value: 1)%>                
+            <%= link_to '<i class="glyphicon glyphicon-volume-down vol"></i>'.html_safe, new_sound_level_path(spot_id: @spot.id.to_i, value: 2)%>                
+            <%= link_to '<i class="glyphicon glyphicon-volume-up vol"></i>'.html_safe, new_sound_level_path(spot_id: @spot.id.to_i, value: 3)%>                
+         </div>
+      </div>
+   </div>
+   <%= render 'shared/status_update' %>
+</div>
 
-<p>
-  <strong>Location:</strong>
-  <%= @spot.location %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @spot.description %>
-</p>
-
-<p>
-  <strong>Type:</strong>
-  <%= @spot.stype %>
-</p>
-
-<p>
-  <strong>Sound level:</strong>
-  <%= @spot.current_sound_level %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @spot.rating %>
-</p>
-
-<p>
-  <strong>Rating count:</strong>
-  <%= @spot.rating_count %>
-</p>
-
-<p>
-  <strong>Checkin count:</strong>
-  <%= @spot.checkin_count %>
-</p>
-
-<hr/>
-<h3>Recent Statuses:</h3>
-<h3><%= @spot.statuses.count %> statuses!</h3>
-<% Status.getTopStatuses(@spot.id.to_i).each do |stat| %>
-  <h4>Status by: <%= stat.user.uname %></h4>
-  <p><%= stat.description %></p>
-<% end %>
-
-<h3> Join <%= @spot.checkins.count %> spotters and <strong>Checkin at this Spot!</strong> </h3>
-<%= link_to 'Checkin!', new_checkin_path(spot_id: @spot.id.to_i) %>
-<br />
-<h3>Down to rate yo? Currently: <%= @spot.rating %> with <%= @spot.rating_count %> ratings. </h3>
-<ul>
-<% 5.times do |z| %>
-  <li><%= link_to "Rate #{z + 1} stars!", new_rating_path(spot_id: @spot.id.to_i, value: (z + 1))%></li>
-<% end %>
-</ul>
-<br />
-<ul>
-<h3>Rate the sound you bitch! Currently: <%= @spot.current_sound_level %></h3>
-<% 3.times do |z| %>
-  <li><%= link_to "Rate #{z + 1} sound!", new_sound_level_path(spot_id: @spot.id.to_i, value: (z + 1))%></li>
-<% end %>
-</ul>
-<br />
-<h3> Add a Status! </h3>
-<%= render 'shared/status_update' %>
-<%= link_to 'Update Status', new_status_path(user_id: cookies[:u_id], spot_id: @spot.id.to_i) %>
-
-<%= link_to 'Edit', edit_spot_path(@spot) %> |
 <%= link_to 'Back', spots_path %>
