@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160507220240) do
+ActiveRecord::Schema.define(version: 20160508014558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,10 @@ ActiveRecord::Schema.define(version: 20160507220240) do
   add_index "statuses", ["user_id"], name: "index_statuses_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.text     "name"
+    t.text     "uname"
+    t.text     "ip_adr"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "ip_adr"
   end
 
 end
