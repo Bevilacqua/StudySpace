@@ -1,6 +1,6 @@
 class SpotsController < ApplicationController
   before_action :set_spot, only: [:show, :edit, :update, :destroy]
-  http_basic_authenticate_with name: "Admin", password: "suck", only: [:edit, :update, :create, :destroy]
+  http_basic_authenticate_with name: "Admin", password: ENV["ADMIN_PASS"], only: [:edit, :update, :create, :destroy]
 
   # GET /spots
   # GET /spots.json
