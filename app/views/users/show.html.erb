@@ -1,14 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Uname:</strong>
-  <%= @user.uname %>
-</p>
+<h2>Welcome <%= @user.uname %></h2>
 
-<p>
-  <strong>Ip adr:</strong>
-  <%= @user.ip_adr %>
-</p>
+<p>This will look better i promise</p>
+
+<h4>Your contributions:</h4>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

@@ -6,8 +6,8 @@ module CurrentUser extend ActiveSupport::Concern
 		@user = User.find(cookies[:u_id])
 		logger.info "User found"
 	rescue ActiveRecord::RecordNotFound
-		logger.info "User not found"
-		@user = User.create
-		cookies[:u_id] = @user.id
+		@user = User.create(:uname => "Anonyomous Pencil")
+		cookies[:u_id] = @user.id.to_i
+		return
 	end
 end

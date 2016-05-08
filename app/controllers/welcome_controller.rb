@@ -3,6 +3,6 @@ class WelcomeController < ApplicationController
 	before_action :set_user, only: [:index]
 
 	def index
-		redirect_to @user	
+		redirect_to @user, :action => :show	
 	end
 end
