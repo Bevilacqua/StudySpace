@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
   before_action :set_status, only: [:show, :edit, :update, :destroy]
-  before_action :restrict, only: [:edit, :destroy, :update]
+  http_basic_authenticate_with name: "Admin", password: ENV["ADMIN_PASS"], only: [:edit, :destroy, :update]
 
   # GET /statuses
   # GET /statuses.json
