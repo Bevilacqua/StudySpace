@@ -32,7 +32,7 @@ class StatusesController < ApplicationController
         format.html { redirect_to @status.spot, notice: 'Status was successfully created.' }
         format.json { render action: 'show', status: :created, location: @status }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to @status.spot, notice: 'Status was not created.'  }
         format.json { render json: @status.errors, status: :unprocessable_entity }
       end
     end

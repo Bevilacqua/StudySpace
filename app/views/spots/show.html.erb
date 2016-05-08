@@ -49,6 +49,7 @@
 <% end %>
 
 <h3> Add a Status! </h3>
+<%= render 'shared/status_update' %>
 <%= link_to 'Update Status', new_status_path(user_id: cookies[:u_id], spot_id: @spot.id.to_i) %>
 
 <%= link_to 'Edit', edit_spot_path(@spot) %> |
