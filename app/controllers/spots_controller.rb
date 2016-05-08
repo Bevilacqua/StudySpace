@@ -14,9 +14,6 @@ class SpotsController < ApplicationController
     @status = Status.new
     @top_statuses = Status.getTopStatuses(@status.id.to_i)
     @missing_count = 3 - @top_statuses.count
-    if @missing_count.to_i > 0
-      @missing_count += 1
-    end
   end
 
   # GET /spots/new

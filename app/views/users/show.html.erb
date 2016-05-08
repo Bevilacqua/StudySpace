@@ -1,14 +1,66 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+	<div class="page-header">
+		<div class="text-center logo"><img style="width: 342px; height: 94px;" src="/assets/study_space_title_logo.png" alt="" /></div>
+		<div class="text-center welcome">
+			<p>Hello, anonymous pencil!</p>
+		</div>
+	</div>
+	<div class="row search_row">
+		<div class="col-lg-12 search_row">
+			<div class="input-group"><input class="form-control" type="text" placeholder="Search" /> <button class="btn btn-default" type="button"></button></div>
+		</div>
+	</div>
+</div>
+<p>&nbsp;</p>
+<div class="well well-sm">
+	<div class="row header">
+		<div class="col-md-3">&nbsp;</div>
+		<div class="col-md-3">
+			<div class="text-center">
+				<div class="visited">
+					<h3>Your Visited Spaces</h3>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-3 text-center other">
+			<h3>Other Popular Spaces</h3>
+		</div>
+	</div>
+</div>
 
-<h2>Welcome <%= @user.uname %></h2>
+<div class="row spaces_panel">
+	<div class="col-md-3">
+		<div class="text-center">
+			<%= @user.checkins.last(3).each do |check| %>
+			<% break if check.spot.nil? %>
+			<div class="panel panel-default">
+				<div class="panel-heading panel1">
+					<h3 class="panel-title"><%= check.spot.name %></h3>
+				</div>
+				<div class="panel-body body1"><%= check.spot.description %></div>
+				<div class="btn-group learn_more"><button class="btn btn-default" type="button">Learn more</button></div>
+			</div>
+			<% end %>
 
-<p>This will look better i promise</p>
+			
+		</div>
+	</div>
 
-<h4>Your contributions:</h4>
-<h5>Checkin Count: <%= @user.checkins.count %></h5>
-<h5>Status Updates: <%= @user.statuses.count %></h5>
-<ul>
-<% @user.statuses.reverse_each do |stat| %>
-	<li><p><%= stat.description %></p><small><%= stat.created_at.to_date %></small></li>	
-<% end %>
-</ul>
+	<div class="col-md-3">
+		<div class="text-center">
+			<%= Status.find(:all, :order => "id", :limit => 3).reverse.each do |check| %>
+			<% break if check.spot.nil? %>
+			<div class="panel panel-default">
+				<div class="panel-heading panel1">
+					<h3 class="panel-title"><%= check.spot.name %></h3>
+				</div>
+				<div class="panel-body body1"><%= check.spot.description %></div>
+				<div class="btn-group learn_more"><button class="btn btn-default" type="button">Learn more</button></div>
+			</div>
+			<% end %>
+
+		</div>
+	</div>
+
+</div>
+
