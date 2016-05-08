@@ -67,6 +67,7 @@
       <% end %>
       
    </div>
+
    <div class="row row2-padding">
       <div class="col-sm-4">
          <div class="text-right">
@@ -85,8 +86,10 @@
             <%= link_to '<i class="glyphicon glyphicon-volume-up vol"></i>'.html_safe, new_sound_level_path(spot_id: @spot.id.to_i, value: 3)%>                
          </div>
       </div>
+      <div class="btn-group learn_more mdi"><%= link_to "Return", user_path(:id => cookies[:u_id]), class: "btn btn-default" %></div>
+
    </div>
    <%= render 'shared/status_update' %>
+
 </div>
 
-<%= link_to 'Back', spots_path %>
